@@ -13,21 +13,93 @@ Estimate token budgets **before** reading or delegating file content:
 
 ## Installation
 
+### From source
+
 ```bash
+git clone https://github.com/ming86/file-token-size-mcp.git
+cd file-token-size-mcp
 npm install
 npm run build
 ```
 
+### Via npx (no clone required)
+
+If published to npm, clients can run it directly with `npx file-token-size-mcp`.
+
 ## Configuration
 
-Add to your MCP client configuration:
+### VS Code (GitHub Copilot)
+
+Open your VS Code settings JSON (`settings.json`) and add:
+
+**macOS / Linux:**
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "file-token-size-mcp": {
+        "command": "node",
+        "args": ["/absolute/path/to/file-token-size-mcp/dist/index.js"]
+      }
+    }
+  }
+}
+```
+
+**Windows:**
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "file-token-size-mcp": {
+        "command": "node",
+        "args": ["C:\\absolute\\path\\to\\file-token-size-mcp\\dist\\index.js"]
+      }
+    }
+  }
+}
+```
+
+Alternatively, create a `.vscode/mcp.json` file in your workspace root for per-project configuration:
+
+```json
+{
+  "servers": {
+    "file-token-size-mcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/file-token-size-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+### GitHub Copilot CLI
+
+Add to `~/.config/github-copilot/mcp.json` (macOS/Linux) or `%APPDATA%\github-copilot\mcp.json` (Windows):
+
+**macOS / Linux:**
 
 ```json
 {
   "mcpServers": {
     "file-token-size-mcp": {
       "command": "node",
-      "args": ["/path/to/file-token-size-mcp/dist/index.js"]
+      "args": ["/absolute/path/to/file-token-size-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+**Windows:**
+
+```json
+{
+  "mcpServers": {
+    "file-token-size-mcp": {
+      "command": "node",
+      "args": ["C:\\absolute\\path\\to\\file-token-size-mcp\\dist\\index.js"]
     }
   }
 }
@@ -38,6 +110,21 @@ Add to your MCP client configuration:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `TOKEN_COUNTER_MODEL` | `GPT-5` | Model for token counting. Valid: `GPT-5`, `Claude Sonnet 4.5`, `Gemini 2.5 Pro` |
+
+To set an environment variable in your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "file-token-size-mcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/file-token-size-mcp/dist/index.js"],
+      "env": {
+        "TOKEN_COUNTER_MODEL": "Claude Sonnet 4.5"
+      }
+    }
+  }
+}
 
 ## Tool: `estimateTokenBudget`
 
