@@ -21,7 +21,7 @@ No installation required. MCP clients run the server directly from the GitHub re
 
 Add to your VS Code `settings.json`, or create a `.vscode/mcp.json` in your workspace root:
 
-**settings.json:**
+**macOS / Linux — settings.json:**
 
 ```json
 {
@@ -36,7 +36,22 @@ Add to your VS Code `settings.json`, or create a `.vscode/mcp.json` in your work
 }
 ```
 
-**.vscode/mcp.json** (per-project):
+**Windows — settings.json:**
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "file-token-size-mcp": {
+        "command": "cmd",
+        "args": ["/c", "npx", "-y", "github:ming86/file-token-size-mcp"]
+      }
+    }
+  }
+}
+```
+
+**.vscode/mcp.json** (per-project, macOS/Linux):
 
 ```json
 {
@@ -49,9 +64,22 @@ Add to your VS Code `settings.json`, or create a `.vscode/mcp.json` in your work
 }
 ```
 
+**.vscode/mcp.json** (per-project, Windows):
+
+```json
+{
+  "servers": {
+    "file-token-size-mcp": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "github:ming86/file-token-size-mcp"]
+    }
+  }
+}
+```
+
 ### GitHub Copilot CLI
 
-Add to `~/.config/github-copilot/mcp.json` (macOS/Linux) or `%APPDATA%\github-copilot\mcp.json` (Windows):
+**macOS / Linux** — add to `~/.config/github-copilot/mcp.json`:
 
 ```json
 {
@@ -64,13 +92,26 @@ Add to `~/.config/github-copilot/mcp.json` (macOS/Linux) or `%APPDATA%\github-co
 }
 ```
 
+**Windows** — add to `%APPDATA%\github-copilot\mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "file-token-size-mcp": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "github:ming86/file-token-size-mcp"]
+    }
+  }
+}
+```
+
 ### Environment Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `TOKEN_COUNTER_MODEL` | `GPT-5` | Model for token counting. Valid: `GPT-5`, `Claude Sonnet 4.5`, `Gemini 2.5 Pro` |
 
-To override the default model:
+To override the default model (macOS/Linux example; on Windows use `"command": "cmd"` with `"args": ["/c", "npx", ...]`):
 
 ```json
 {
