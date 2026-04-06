@@ -16,7 +16,7 @@ const tool = new CalculateFilesTokenSizeTool(tokenCounter);
 
 server.tool(
   'calculateFilesTokenSize',
-  `Use this to estimate token consumption BEFORE reading or delegating file content. Use it to:
+  `Use this to calculate token size estimation for files BEFORE reading or delegating their content. Use it to:
 - Plan task scope: Know file sizes and line counts before deciding how to decompose work
 - Intelligent reading: Decide whether to read entire files or use targeted approaches
 - Context budgeting: Verify content fits within context limits before delegation
