@@ -3,9 +3,9 @@
  */
 
 /**
- * Input parameters for the estimateTokenBudget tool.
+ * Input parameters for the calculateFilesTokenSize tool.
  */
-export interface IEstimateTokenBudgetParameters {
+export interface ICalculateFilesTokenSizeParameters {
   filePaths: string[];
 }
 

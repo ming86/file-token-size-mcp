@@ -1,19 +1,19 @@
 import { readFile } from 'node:fs/promises';
 import { TokenCounterService } from './tokenCounterService.js';
-import type { IEstimateTokenBudgetParameters, ITokenBudgetResult, ModelName } from './types.js';
+import type { ICalculateFilesTokenSizeParameters, ITokenBudgetResult, ModelName } from './types.js';
 
 /**
- * Port of EstimateTokenBudgetTool from vscode-token-counter.
+ * Port of EstimateTokenBudgetTool from vscode-token-counter, renamed to CalculateFilesTokenSizeTool.
  * Replaces vscode.workspace.fs with Node.js fs and vscode config with env var.
  */
-export class EstimateTokenBudgetTool {
+export class CalculateFilesTokenSizeTool {
   private readonly tokenCounter: TokenCounterService;
 
   constructor(tokenCounter: TokenCounterService) {
     this.tokenCounter = tokenCounter;
   }
 
-  async invoke(params: IEstimateTokenBudgetParameters): Promise<ITokenBudgetResult[]> {
+  async invoke(params: ICalculateFilesTokenSizeParameters): Promise<ITokenBudgetResult[]> {
     const { filePaths } = params;
 
     if (!filePaths || filePaths.length === 0) {

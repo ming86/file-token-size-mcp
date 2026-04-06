@@ -4,7 +4,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 import { TokenCounterService } from './tokenCounterService.js';
-import { EstimateTokenBudgetTool } from './estimateTokenBudgetTool.js';
+import { CalculateFilesTokenSizeTool } from './calculateFilesTokenSizeTool.js';
 
 const server = new McpServer({
   name: 'file-token-size-mcp',
@@ -12,10 +12,10 @@ const server = new McpServer({
 });
 
 const tokenCounter = new TokenCounterService();
-const tool = new EstimateTokenBudgetTool(tokenCounter);
+const tool = new CalculateFilesTokenSizeTool(tokenCounter);
 
 server.tool(
-  'estimateTokenBudget',
+  'calculateFilesTokenSize',
   `Use this to estimate token consumption BEFORE reading or delegating file content. Use it to:
 - Plan task scope: Know file sizes and line counts before deciding how to decompose work
 - Intelligent reading: Decide whether to read entire files or use targeted approaches

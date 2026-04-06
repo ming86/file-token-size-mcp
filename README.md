@@ -1,6 +1,6 @@
 # file-token-size-mcp
 
-An MCP server that estimates token consumption for files before reading them. Port of the `estimateTokenBudget` LM tool from [vscode-token-counter](https://github.com/ming86/vscode-token-counter).
+An MCP server that calculates token size for files before reading them. Port of the `estimateTokenBudget` LM tool from [vscode-token-counter](https://github.com/ming86/vscode-token-counter).
 
 ## Purpose
 
@@ -133,7 +133,7 @@ To override the default model (macOS/Linux example; on Windows use `"command": "
 }
 ```
 
-## Tool: `estimateTokenBudget`
+## Tool: `calculateFilesTokenSize`
 
 ### Input
 

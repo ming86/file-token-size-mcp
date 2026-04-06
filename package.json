@@ -1,7 +1,7 @@
 {
   "name": "file-token-size-mcp",
   "version": "0.1.0",
-  "description": "MCP server that estimates token budget for files - exact port of vscode-token-counter's estimateTokenBudget LM tool",
+  "description": "MCP server that estimate token size for files.",
   "main": "dist/index.js",
   "bin": {
     "file-token-size-mcp": "dist/index.js"
