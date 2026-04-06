@@ -1,7 +1,7 @@
 {
   "name": "file-token-size-mcp",
   "version": "0.1.0",
-  "description": "MCP server that estimate token size for files.",
+  "description": "MCP server that calculate token size estimation for files.",
   "main": "dist/index.js",
   "bin": {
     "file-token-size-mcp": "dist/index.js"
