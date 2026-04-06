@@ -1,0 +1,37 @@
+{
+  "name": "file-token-size-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that estimates token budget for files - exact port of vscode-token-counter's estimateTokenBudget LM tool",
+  "main": "dist/index.js",
+  "bin": {
+    "file-token-size-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ming86/file-token-size-mcp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ming86/file-token-size-mcp/issues"
+  },
+  "homepage": "https://github.com/ming86/file-token-size-mcp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "ai-tokenizer": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+}
