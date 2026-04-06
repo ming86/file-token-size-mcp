@@ -79,27 +79,33 @@ Add to your VS Code `settings.json`, or create a `.vscode/mcp.json` in your work
 
 ### GitHub Copilot CLI
 
-**macOS / Linux** — add to `~/.config/github-copilot/mcp.json`:
+The MCP config file is `~/.copilot/mcp-config.json` (macOS/Linux) or `%USERPROFILE%\.copilot\mcp-config.json` (Windows). You can also add servers interactively with `/mcp add` inside the CLI.
+
+**macOS / Linux:**
 
 ```json
 {
   "mcpServers": {
     "file-token-size-mcp": {
+      "type": "local",
       "command": "npx",
-      "args": ["-y", "github:ming86/file-token-size-mcp"]
+      "args": ["-y", "github:ming86/file-token-size-mcp"],
+      "tools": ["*"]
     }
   }
 }
 ```
 
-**Windows** — add to `%APPDATA%\github-copilot\mcp.json`:
+**Windows:**
 
 ```json
 {
   "mcpServers": {
     "file-token-size-mcp": {
+      "type": "local",
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "github:ming86/file-token-size-mcp"]
+      "args": ["/c", "npx", "-y", "github:ming86/file-token-size-mcp"],
+      "tools": ["*"]
     }
   }
 }
